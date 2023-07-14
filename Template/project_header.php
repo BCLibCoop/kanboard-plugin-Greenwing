@@ -1,5 +1,5 @@
 <div class="project-header <?= $filters['plugin'] && gettype($filters['plugin']) == 'array' ? 'color-' : '' ?><?= $filters['plugin'] && gettype($filters['plugin']) == 'array' ? $filters['plugin']['task']['color_id'] : '' ?>">
-    <?php $filters['plugin'] = '' ?>
+    <?php $filters['plugin'] = gettype($filters['plugin']) == 'array' ? '' : $filters['plugin']; ?>
 
     <?= $this->hook->render('template:project:header:before', array('project' => $project)) ?>
 
