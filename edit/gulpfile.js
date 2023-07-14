@@ -1,12 +1,11 @@
 var gulp = require('gulp'),
-    sass = require('gulp-sass'),
+    sass = require('gulp-sass')(require('sass')),
     cleanCss = require('gulp-clean-css'),
     sourcemaps = require('gulp-sourcemaps'),
     clean = require('gulp-clean'),
     autoprefixer = require('gulp-autoprefixer'),
     rev = require('gulp-rev'),
     browserSync = require('browser-sync').create(),
-    { series } = require('gulp');
     paths = {
       host: 'localhost:8040',
       dest: 'dist',
@@ -14,7 +13,7 @@ var gulp = require('gulp'),
       scss: 'sass/**/*.scss',
     }
 
-function style() {
+gulp.task('style', function () {
   return (
     gulp
       .src(paths.mainScss)
@@ -28,30 +27,27 @@ function style() {
       .pipe(rev.manifest())
       .pipe(gulp.dest(paths.dest))
   )
-}
+});
 
-function serve(done) {
-  browserSync.init({
-    proxy: paths.host
-  });
-  done();
-}
-
-function clearDist(done) {
+gulp.task('clearDist', function (done) {
   return (
     gulp
       .src(['dist', 'build/dist', 'build/src'], {allowEmpty: true})
       .pipe(clean())
   )
-}
+});
 
-function reload(done) {
+gulp.task('reload', function (done) {
   browserSync.reload();
   done();
-}
+});
 
-function watch() {
-  gulp.watch([paths.scss], gulp.series(clearDist, style, reload));
-}
+gulp.task('watch', function () {
+  browserSync.init({
+    proxy: paths.host
+  });
 
-exports.watch = series(clearDist, style, serve, watch);
+  gulp.watch([paths.scss], gulp.series('clearDist', 'style', 'reload'));
+});
+
+gulp.task('default', gulp.series('clearDist', 'style'));
