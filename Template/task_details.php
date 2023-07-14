@@ -1,5 +1,5 @@
 <section id="task-summary">
-    <div class="task-summary-title color-<?= $task['color_id'] ?>"> 
+    <div class="task-summary-title color-<?= $task['color_id'] ?>">
        <h2><?= $this->text->e($task['title']) ?></h2>
     </div>
 
@@ -88,7 +88,7 @@
                         <?php endif ?>
                         </span>
                         <?php if ($editable && $task['owner_id'] != $this->user->getId()): ?>
-                            - <span><?= $this->url->link(t('Assign to me'), 'TaskModificationController', 'assignToMe', ['task_id' => $task['id'], 'project_id' => $task['project_id'], 'csrf_token' => $this->app->getToken()->getReusableCSRFToken()]) ?></span>
+                            - <span><?= $this->url->link(t('Assign to me'), 'TaskModificationController', 'assignToMe', ['task_id' => $task['id'], 'csrf_token' => $this->app->getToken()->getReusableCSRFToken()]) ?></span>
                         <?php endif ?>
                     </li>
                     <?php if ($task['creator_username']): ?>
@@ -126,7 +126,7 @@
                         <?php if ($task['date_started']): ?>
                             <span><?= $this->dt->datetime($task['date_started']) ?></span>
                         <?php elseif ($editable): ?>
-                            <span><?= $this->url->link(t('Start now'), 'TaskModificationController', 'start', ['task_id' => $task['id'], 'project_id' => $task['project_id'], 'csrf_token' => $this->app->getToken()->getReusableCSRFToken()]) ?></span>
+                            <span><?= $this->url->link(t('Start now'), 'TaskModificationController', 'start', ['task_id' => $task['id'], 'csrf_token' => $this->app->getToken()->getReusableCSRFToken()]) ?></span>
                         <?php endif ?>
                     </li>
                     <li>
@@ -167,7 +167,7 @@
 
     <?php if (! empty($task['external_uri']) && ! empty($task['external_provider'])): ?>
         <?= $this->app->component('external-task-view', array(
-            'url' => $this->url->href('ExternalTaskViewController', 'show', array('project_id' => $task['project_id'], 'task_id' => $task['id'])),
+            'url' => $this->url->href('ExternalTaskViewController', 'show', array('task_id' => $task['id'])),
         )) ?>
     <?php endif ?>
 
