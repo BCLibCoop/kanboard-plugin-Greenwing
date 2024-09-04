@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanboard\Plugin\Greenwing;
+namespace Kanboard\Plugin\Greenwing\Model;
 
 use Kanboard\Model\TaskCreationModel as BaseTaskCreationModel;
 use Kanboard\Model\TaskModel;

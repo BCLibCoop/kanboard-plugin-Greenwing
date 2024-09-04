@@ -1,7 +1,7 @@
 <div class="table-list-wrapper">
     <?= $this->render('user_list/dropdown', array('user' => $user)) ?>
     <span class="table-list-title <?= $user['is_active'] == 0 ? 'status-closed' : '' ?>">
-        <?= $this->myAvatarHelper->small(
+        <?= $this->avatar->small(
             $user['id'],
             $user['username'],
             $user['name'],

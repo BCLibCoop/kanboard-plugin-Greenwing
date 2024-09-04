@@ -1,4 +1,5 @@
-<div id="board-container">
+<div id="board-container"
+    class="<?= ($project['task_limit'] && array_key_exists('nb_active_tasks', $project) && $project['nb_active_tasks'] > $project['task_limit']) ? 'board-task-list-limit' : '' ?>">
 
     <?php if (! ($swimlanes[0]['nb_tasks'] === 0 && isset($not_editable))): ?>
         <?php if ($swimlanes[0]['nb_swimlanes'] > 1): ?>
@@ -24,8 +25,8 @@
                    data-project-id="<?= $project['id'] ?>"
                    data-check-interval="<?= $board_private_refresh_interval ?>"
                    data-save-url="<?= $this->url->href('BoardAjaxController', 'save', array('project_id' => $project['id'], 'csrf_token' => $this->app->getToken()->getReusableCSRFToken())) ?>"
-                   data-reload-url="<?= $this->url->href('BoardAjaxController', 'reload', array('project_id' => $project['id'])) ?>"
-                   data-check-url="<?= $this->url->href('BoardAjaxController', 'check', array('project_id' => $project['id'], 'timestamp' => time())) ?>"
+                   data-reload-url="<?= $this->url->href('BoardAjaxController', 'reload', array('project_id' => $project['id'], 'csrf_token' => $this->app->getToken()->getReusableCSRFToken())) ?>"
+                   data-check-url="<?= $this->url->href('BoardAjaxController', 'check', array('project_id' => $project['id'], 'timestamp' => time(), 'csrf_token' => $this->app->getToken()->getReusableCSRFToken())) ?>"
                    data-task-creation-url="<?= $this->url->href('TaskCreationController', 'show', array('project_id' => $project['id'])) ?>"
             >
         <?php endif ?>
@@ -46,8 +47,6 @@
                     'swimlane' => $swimlane,
                     'not_editable' => isset($not_editable),
                 )) ?>
-
-
 
                 <?= $this->render('board/table_tasks', array(
                     'project' => $project,

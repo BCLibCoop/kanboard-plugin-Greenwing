@@ -1,5 +1,4 @@
-<div class="project-header <?= $filters['plugin'] && gettype($filters['plugin']) == 'array' ? 'color-' : '' ?><?= $filters['plugin'] && gettype($filters['plugin']) == 'array' ? $filters['plugin']['task']['color_id'] : '' ?>">
-    <?php $filters['plugin'] = gettype($filters['plugin']) == 'array' ? '' : $filters['plugin']; ?>
+<div class="project-header <?= isset($task) && !empty($task['color_id']) ? 'color-' . $task['color_id'] : '' ?>">
 
     <?= $this->hook->render('template:project:header:before', array('project' => $project)) ?>
 
@@ -9,7 +8,8 @@
     <div class="views-switcher-component">
         <?= $this->render('project_header/views', array('project' => $project, 'filters' => $filters)) ?>
     </div>
-    <?php if (strpos($_SERVER["QUERY_STRING"], 'TaskViewController') === false): ?>
+
+    <?php if ($this->app->getRouterController() !== 'TaskViewController'): ?>
         <div class="filter-box-component">
             <?= $this->render('project_header/search', array(
                 'project' => $project,
@@ -21,5 +21,6 @@
             )) ?>
         </div>
     <?php endif ?>
+
     <?= $this->hook->render('template:project:header:after', array('project' => $project)) ?>
 </div>

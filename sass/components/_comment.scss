@@ -30,37 +30,37 @@
 
     .comment-description {
       width: 100%;
+    }
 
-      .comment-title {
-        border-bottom: 0 none;
-        margin-left: 0;
-        display: flex;
-        margin-bottom: 8px;
+    .comment-title {
+      border-bottom: 0 none;
+      margin-left: 0;
+      display: flex;
+      margin-bottom: 8px;
 
-        .comment-username,
-        .comment-date {
-          margin-right: 15px;
-        }
-
-        .comment-date {
-          color: $default-text-color;
-        }
+      .comment-username,
+      .comment-date {
+        margin-right: 15px;
       }
 
-      .dropdown {
-        margin-left: auto;
-
-        .fa.fa-cog {
-          margin-right: 3px;
-        }
+      .comment-date {
+        color: $default-text-color;
       }
+    }
 
-      .comment-content {
-        margin-left: 0;
+    .comment-actions {
+      margin-left: auto;
 
-        .markdown p:last-child {
-          margin-bottom: 0;
-        }
+      .fa.fa-cog {
+        margin-right: 3px;
+      }
+    }
+
+    .comment-content {
+      margin-left: 0;
+
+      .markdown p:last-child {
+        margin-bottom: 0;
       }
     }
 

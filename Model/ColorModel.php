@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanboard\Plugin\Greenwing;
+namespace Kanboard\Plugin\Greenwing\Model;
 
 use Kanboard\Model\ColorModel as BaseColorModel;
 use Kanboard\Core\Base;

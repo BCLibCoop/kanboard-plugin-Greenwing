@@ -28,7 +28,7 @@
                             <?= $this->url->link($this->text->e($user['name'] ?: $user['username']), 'UserViewController', 'show', array('user_id' => $user['id'])) ?>
                         </span>
                     </div>
-                    
+
                     <div class="table-list-details-wrapper">
                         <?= $this->render('user_list/user_details', array(
                             'user' => $user,
@@ -38,7 +38,6 @@
                             'user' => $user,
                         )) ?>
                     </div>
-                    
                 </div>
             <?php endforeach ?>
         </div>

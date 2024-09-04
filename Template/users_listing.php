@@ -21,7 +21,7 @@
     <form method="get" action="<?= $this->url->dir() ?>" class="search">
         <?= $this->form->hidden('controller', array('controller' => 'UserListController')) ?>
         <?= $this->form->hidden('action', array('action' => 'search')) ?>
-        <?= $this->form->text('search', $values, array(), array('placeholder="'.t('Search').'"')) ?>
+        <?= $this->form->text('search', $values, array(), array('placeholder="'.t('Search').'"', 'aria-label="'.t('Search').'"')) ?>
     </form>
 </div>
 
@@ -45,7 +45,7 @@
                         'user' => $user,
                     )) ?>
                 </div>
-               
+
             </div>
         <?php endforeach ?>
     </div>

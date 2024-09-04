@@ -39,45 +39,43 @@
             <div class="task-board-header">
                 <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
                     <?= $this->render('task/dropdown', array('task' => $task, 'redirect' => 'board')) ?>
-
                     <?php if ($this->projectRole->canUpdateTask($task)): ?>
                         <?= $this->modal->large('edit', '', 'TaskModificationController', 'edit', array('task_id' => $task['id'])) ?>
                     <?php endif ?>
-                    <?php else: ?>
-                        <strong><?= '#'.$task['id'] ?></strong>
-                    <?php endif ?>
+                <?php else: ?>
+                    <strong><?= '#'.$task['id'] ?></strong>
+                <?php endif ?>
 
             </div>
 
             <?= $this->hook->render('template:board:private:task:before-title', array('task' => $task)) ?>
-
             <div class="task-board-title">
                 <?= $this->url->link($this->text->e($task['title']), 'TaskViewController', 'show', array('task_id' => $task['id'])) ?>
             </div>
             <?= $this->hook->render('template:board:private:task:after-title', array('task' => $task)) ?>
 
             <?php if (! empty($task['category_id'])): ?>
-            <div class="task-board-category-container task-board-category-container-color">
-                <h4><?= t('Category'); ?></h4>
-                <span class="task-board-category category-<?= $this->text->e($task['category_name']) ?> <?= $task['category_color_id'] ? "color-{$task['category_color_id']}" : '' ?>">
-                    <?php if ($not_editable): ?>
-                        <?= $this->text->e($task['category_name']) ?>
-                    <?php else: ?>
-                        <?= $this->url->link(
-                            $this->text->e($task['category_name']),
-                            'TaskModificationController',
-                            'edit',
-                            array('task_id' => $task['id']),
-                            false,
-                            'js-modal-medium' . (! empty($task['category_description']) ? ' tooltip' : ''),
-                            t('Change category')
-                        ) ?>
-                        <?php if (! empty($task['category_description'])): ?>
-                            <?= $this->app->tooltipMarkdown($task['category_description']) ?>
+                <div class="task-board-category-container task-board-category-container-color">
+                    <h4><?= t('Category'); ?></h4>
+                    <span class="task-board-category category-<?= $this->text->e($task['category_name']) ?> <?= $task['category_color_id'] ? "color-{$task['category_color_id']}" : '' ?>">
+                        <?php if ($not_editable): ?>
+                            <?= $this->text->e($task['category_name']) ?>
+                        <?php else: ?>
+                            <?= $this->url->link(
+                                $this->text->e($task['category_name']),
+                                'TaskModificationController',
+                                'edit',
+                                array('task_id' => $task['id']),
+                                false,
+                                'js-modal-medium' . (! empty($task['category_description']) ? ' tooltip' : ''),
+                                t('Change category')
+                            ) ?>
+                            <?php if (! empty($task['category_description'])): ?>
+                                <?= $this->app->tooltipMarkdown($task['category_description']) ?>
+                            <?php endif ?>
                         <?php endif ?>
-                    <?php endif ?>
-                </span>
-            </div>
+                    </span>
+                </div>
             <?php endif ?>
 
             <?php if (! empty($task['tags'])): ?>
@@ -91,13 +89,11 @@
                 </div>
             <?php endif ?>
 
-
             <?= $this->render('board/task_footer', array(
                 'task' => $task,
                 'not_editable' => $not_editable,
                 'project' => $project,
             )) ?>
-
         </div>
     <?php endif ?>
 </div>
