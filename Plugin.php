@@ -25,15 +25,11 @@ class Plugin extends Base {
 			return new Model\ColorModel( $c );
 		} );
 
-		$this->container['taskCreationModel'] = $this->container->factory( function ( $c ) {
-			return new Model\TaskCreationModel( $c );
-		} );
-
 		/**
 		 * Extending and overriding default helpers to limit number of template  overrides required.
 		 */
-		$this->helper->register( 'avatar', Helper\MyAvatarHelper::class );
-		$this->helper->register( 'projectHeader', Helper\MyProjectHeaderHelper::class );
+		$this->helper->register( 'avatar', Helper\AvatarHelper::class );
+		$this->helper->register( 'projectHeader', Helper\ProjectHeaderHelper::class );
 
 		$this->hook->on( 'template:layout:css', array( 'template' => $this->assetPath('main.css') ) );
 	}

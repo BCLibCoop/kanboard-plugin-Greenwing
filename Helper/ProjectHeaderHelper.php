@@ -7,7 +7,7 @@ namespace Kanboard\Plugin\Greenwing\Helper;
  * @package helper
  * @author  Frederic Guillot
  */
-class MyProjectHeaderHelper extends \Kanboard\Helper\ProjectHeaderHelper
+class ProjectHeaderHelper extends \Kanboard\Helper\ProjectHeaderHelper
 {
     /**
      * Render project header (views switcher and search box)

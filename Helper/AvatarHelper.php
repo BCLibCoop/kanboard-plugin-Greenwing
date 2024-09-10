@@ -2,7 +2,7 @@
 
 namespace Kanboard\Plugin\Greenwing\Helper;
 
-class MyAvatarHelper extends \Kanboard\Helper\AvatarHelper
+class AvatarHelper extends \Kanboard\Helper\AvatarHelper
 {
     /**
      * Render small user avatar

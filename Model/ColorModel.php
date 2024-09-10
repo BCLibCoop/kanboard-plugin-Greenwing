@@ -2,9 +2,7 @@
 
 namespace Kanboard\Plugin\Greenwing\Model;
 
-use Kanboard\Model\ColorModel as BaseColorModel;
-
-class ColorModel extends BaseColorModel
+class ColorModel extends \Kanboard\Model\ColorModel
 {
     /**
      * Default colors
