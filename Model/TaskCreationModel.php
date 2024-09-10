@@ -4,7 +4,6 @@ namespace Kanboard\Plugin\Greenwing\Model;
 
 use Kanboard\Model\TaskCreationModel as BaseTaskCreationModel;
 use Kanboard\Model\TaskModel;
-use Kanboard\Core\Base;
 
 class TaskCreationModel extends BaseTaskCreationModel
 {

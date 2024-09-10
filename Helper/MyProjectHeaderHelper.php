@@ -37,7 +37,7 @@ class MyProjectHeaderHelper extends \Kanboard\Helper\ProjectHeaderHelper
             'task' => $task,
             'filters' => $filters,
             'categories_list' => $this->categoryModel->getList($project['id'], false),
-            'colors_list' => $this->colorModel->getList(false),
+            'colors_list' => $this->colorModel->getList(false, true),
             'users_list' => $this->projectUserRoleModel->getAssignableUsersList($project['id'], false),
             'custom_filters_list' => $this->customFilterModel->getAll($project['id'], $this->userSession->getId()),
             'board_view' => $boardView,

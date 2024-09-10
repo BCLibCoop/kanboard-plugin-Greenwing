@@ -3,7 +3,6 @@
 namespace Kanboard\Plugin\Greenwing\Model;
 
 use Kanboard\Model\ColorModel as BaseColorModel;
-use Kanboard\Core\Base;
 
 class ColorModel extends BaseColorModel
 {
@@ -13,56 +12,55 @@ class ColorModel extends BaseColorModel
      * @access protected
      * @var array
      */
-    protected $default_colors =
-    array(
+    protected $default_colors = array(
         'yellow' => array(
-            'name' => 'Yellow'
+            'name' => 'Yellow',
         ),
         'blue' => array(
-            'name' => 'Blue'
+            'name' => 'Blue',
         ),
         'green' => array(
-            'name' => 'Green'
+            'name' => 'Green',
         ),
         'purple' => array(
-            'name' => 'Purple'
+            'name' => 'Purple',
         ),
         'red' => array(
-            'name' => 'Red'
+            'name' => 'Red',
         ),
         'orange' => array(
-            'name' => 'Orange'
+            'name' => 'Orange',
         ),
         'grey' => array(
-            'name' => 'Grey'
+            'name' => 'Grey',
         ),
         'brown' => array(
-            'name' => 'Brown'
+            'name' => 'Brown',
         ),
         'deep_orange' => array(
-            'name' => 'Deep Orange'
+            'name' => 'Deep Orange',
         ),
         'dark_grey' => array(
-            'name' => 'Dark Grey'
+            'name' => 'Dark Grey',
         ),
         'pink' => array(
-            'name' => 'Pink'
+            'name' => 'Pink',
         ),
         'teal' => array(
-            'name' => 'Teal'
+            'name' => 'Teal',
         ),
         'cyan' => array(
-            'name' => 'Cyan'
+            'name' => 'Cyan',
         ),
         'lime' => array(
-            'name' => 'Lime'
+            'name' => 'Lime',
         ),
         'light_green' => array(
-            'name' => 'Light Green'
+            'name' => 'Light Green',
         ),
         'amber' => array(
-            'name' => 'Amber'
-        )
+            'name' => 'Amber',
+        ),
     );
 
     /**
@@ -76,11 +74,7 @@ class ColorModel extends BaseColorModel
     {
         $listing = $prepend ? array('' => t('All colors')) : array();
         foreach ($this->default_colors as $color_id => $color) {
-            if ($defaultLanguage) {
-                $listing[$color_id] = $color['name'];
-            } else {
-                $listing[$color_id] = t($color['name']);
-            }
+            $listing[$color_id] = $defaultLanguage ? $color['name'] : t($color['name']);
         }
 
         $this->hook->reference('model:color:get-list', $listing);
@@ -96,14 +90,6 @@ class ColorModel extends BaseColorModel
      */
     public function getCss()
     {
-        $buffer = '';
-
-        foreach ($this->default_colors as $color => $values) {
-            $buffer .= '.task-board.color-'.$color.', .task-summary-container.color-'.$color.', .color-picker-square.color-'.$color.', .task-board-category.color-'.$color.', .table-list-category.color-'.$color.', .task-tag.color-'.$color;
-            $buffer .= 'td.color-'.$color;
-            $buffer .= '.table-list-row.color-'.$color;
-        }
-
-        return $buffer;
+        return '';
     }
 }
