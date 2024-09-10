@@ -9,8 +9,8 @@ var gulp = require('gulp'),
     paths = {
       host: 'localhost:8040',
       dest: 'dist',
-      mainScss: 'sass/main.scss',
-      scss: 'sass/**/*.scss',
+      mainScss: 'assets/sass/main.scss',
+      scss: 'assets/sass/**/*.scss',
     }
 
 gulp.task('style', function () {
