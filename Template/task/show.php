@@ -1,3 +1,8 @@
+<?php
+/**
+ * Template override moves the comments section immediately after the description
+ */
+?>
 <?= $this->hook->render('template:task:show:top', array('task' => $task, 'project' => $project)) ?>
 
 <?= $this->render('task/details', array(

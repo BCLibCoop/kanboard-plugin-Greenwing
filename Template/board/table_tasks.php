@@ -1,3 +1,9 @@
+<?php
+/**
+ * Template override changes the collapse/expand column button, and adds the
+ * number of tasks in the column
+ */
+?>
 <!-- task row -->
 <tr class="board-swimlane board-swimlane-tasks-<?= $swimlane['id'] ?><?= $swimlane['task_limit'] && $swimlane['nb_tasks'] > $swimlane['task_limit'] ? ' board-task-list-limit' : '' ?>">
     <?php foreach ($swimlane['columns'] as $column): ?>

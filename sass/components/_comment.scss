@@ -22,14 +22,11 @@
     display: flex;
     margin-bottom: 15px;
     align-items: center;
+    flex-wrap: wrap;
 
     .avatar-left {
-      float: none;
       margin-right: 15px;
-    }
-
-    .comment-description {
-      width: 100%;
+      margin-bottom: 15px;
     }
 
     .comment-title {
@@ -37,6 +34,7 @@
       margin-left: 0;
       display: flex;
       margin-bottom: 8px;
+      flex-grow: 1;
 
       .comment-username,
       .comment-date {
@@ -49,14 +47,13 @@
     }
 
     .comment-actions {
-      margin-left: auto;
-
       .fa.fa-cog {
         margin-right: 3px;
       }
     }
 
     .comment-content {
+      flex-basis: 100%;
       margin-left: 0;
 
       .markdown p:last-child {

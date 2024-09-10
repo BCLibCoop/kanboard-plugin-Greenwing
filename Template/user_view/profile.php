@@ -1,3 +1,8 @@
+<?php
+/**
+ * Template override adds a class to style this page
+ */
+?>
 <section id="main" class="user-profile-container">
     <?= $this->avatar->render($user['id'], $user['username'], $user['name'], $user['email'], $user['avatar_path']) ?>
     <div class="panel">

@@ -29,15 +29,13 @@
                         </span>
                     </div>
 
-                    <div class="table-list-details-wrapper">
-                        <?= $this->render('user_list/user_details', array(
-                            'user' => $user,
-                        )) ?>
+                    <?= $this->render('user_list/user_details', array(
+                        'user' => $user,
+                    )) ?>
 
-                        <?= $this->render('user_list/user_icons', array(
-                            'user' => $user,
-                        )) ?>
-                    </div>
+                    <?= $this->render('user_list/user_icons', array(
+                        'user' => $user,
+                    )) ?>
                 </div>
             <?php endforeach ?>
         </div>

@@ -55,6 +55,9 @@
     padding: 0;
     border-radius: 0;
     border-color: $default-border-color;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
     &:hover,
     &:focus {
@@ -62,19 +65,12 @@
       border-color: $default-border-color;
     }
 
-    .table-list-wrapper {
-      display: flex;
-      align-items: center;
+    > *:first-child {
+      flex-basis: 100%;
+    }
 
-      .table-list-title {
-        display: flex;
-        align-items: center;
-        padding: 0;
-
-        .avatar {
-          margin-right: 10px;
-        }
-      }
+    > *:nth-child(2) {
+      flex-grow: 1;
     }
 
     > div:first-child {
@@ -94,21 +90,6 @@
       margin-right: 5px;
     }
 
-    .table-list-details-wrapper {
-      display: flex;
-      align-items: center;
-      border-top: 1px solid $default-border-color;
-
-      .table-list-details {
-        border-top: 0 none;
-      }
-
-      .table-list-icons {
-        border-top: 0 none;
-        display: flex;
-        margin-left: auto;
-      }
-    }
     .table-list-details {
       color: $default-text-color;
       padding: 5px 10px;
@@ -233,20 +214,23 @@
     }
 
     .table-list-title {
+      display: flex;
+      align-items: center;
+      padding: 0;
       padding-left: 1rem;
+      padding: 15px;
 
       a {
         color: $default-color;
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
       }
-    }
 
-    .table-list-title {
-      display: block;
-      padding: 15px;
-
-      a:hover,
-      a:focus {
-        text-decoration: none;
+      .avatar {
+        margin-right: 10px;
       }
     }
 

@@ -7,11 +7,26 @@
     padding: 0;
     overflow: hidden;
 
+    .task-board-expanded {
+      display: flex;
+      flex-flow: row wrap;
+
+      > * {
+        flex: 1 100%;
+      }
+    }
+
     .task-board-header {
       display: flex;
       align-items: center;
       margin-bottom: 10px;
       padding: 5px 10px 2px;
+
+      // Hiding in favor of maintaining a template override
+      .task-board-assignee,
+      .task-board-avatars {
+        display: none;
+      }
 
       .dropdown {
         .dropdown-menu strong {
@@ -61,8 +76,12 @@
 
     .task-board-category-container,
     .task-tags {
-      h4 {
-        margin-top: 0;
+      padding: 10px;
+      border-top: 1px solid $task-board-meta-border-color;
+      background-color: $task-board-meta-bg-color;
+
+      &::before {
+        display: block;
         margin-bottom: 10px;
         font-size: 0.8em;
         font-weight: 500;
@@ -72,9 +91,10 @@
     .task-board-category-container {
       text-align: initial;
       margin: 0;
-      padding: 10px;
-      border-top: 1px solid $task-board-meta-border-color;
-      background-color: $task-board-meta-bg-color;
+
+      &::before {
+        content: 'Category';
+      }
 
       .task-board-category {
         border-style: none;
@@ -86,9 +106,9 @@
     }
 
     .task-tags {
-      padding: 10px;
-      border-top: 1px solid $task-board-meta-border-color;
-      background-color: $task-board-meta-bg-color;
+      &::before {
+        content: 'Tags';
+      }
 
       li.task-tag {
         border: 0 none;
@@ -103,7 +123,10 @@
       border-top: 1px solid $task-board-meta-border-color;
       padding: 10px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-grow: 10;
+      flex-basis: 0%;
       background-color: $task-board-meta-bg-color;
 
       .task-board-icons-row {
@@ -153,6 +176,12 @@
 
     .task-board-avatars {
       margin-left: auto;
+      flex: 1;
+      align-self: stretch;
+      align-content: center;
+      text-align: unset;
+      background-color: $task-board-meta-bg-color;
+      border-top: 1px solid $task-board-meta-border-color;
 
       span {
         opacity: 0.8;

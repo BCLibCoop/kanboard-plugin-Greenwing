@@ -8,36 +8,18 @@ class Plugin extends Base {
 	public static $name = 'Greenwing';
 
 	public function initialize() {
+		$this->template->setTemplateOverride( 'board/table_column', self::$name . ':board/table_column' );
+		$this->template->setTemplateOverride( 'board/table_tasks', self::$name . ':board/table_tasks' );
+		$this->template->setTemplateOverride( 'group/users', self::$name . ':group/users' );
+		$this->template->setTemplateOverride( 'project_header/header', self::$name . ':project_header/header' );
+		$this->template->setTemplateOverride( 'project_header/search', self::$name . ':project_header/search' );
+		$this->template->setTemplateOverride( 'task/show', self::$name . ':task/show' );
+		$this->template->setTemplateOverride( 'twofactor/check', self::$name . ':twofactor/check' );
+		$this->template->setTemplateOverride( 'user_view/profile', self::$name . ':user_view/profile' );
 
-		global $GreenwingConfig;
+		$this->template->hook->attach('template:auth:login-form:before', self::$name . ':hook/login');
 
-		require_once __DIR__ . DIRECTORY_SEPARATOR . 'Config.php';
-
-		if (isset($GreenwingConfig['logo'])) {
-			$this->template->setTemplateOverride('header/title', self::$name . ':logo');
-		}
-
-		$this->template->setTemplateOverride( 'board/table_column', self::$name . ':table_column' );
-		$this->template->setTemplateOverride( 'board/table_container', self::$name . ':table_container' );
-		$this->template->setTemplateOverride( 'board/table_tasks', self::$name . ':table_tasks' );
-		$this->template->setTemplateOverride( 'board/task_footer', self::$name . ':task_footer' );
-		$this->template->setTemplateOverride( 'board/task_private', self::$name . ':task_private' );
-		$this->template->setTemplateOverride( 'board/task_public', self::$name . ':task_public' );
-		$this->template->setTemplateOverride( 'comment/show', self::$name . ':comment_show' );
-		$this->template->setTemplateOverride( 'dashboard/projects', self::$name . ':projects' );
-		$this->template->setTemplateOverride( 'group/users', self::$name . ':group_users' );
-		$this->template->setTemplateOverride( 'plugin/show', self::$name . ':plugin/show' );
-		$this->template->setTemplateOverride( 'project_header/header', self::$name . ':project_header' );
-		$this->template->setTemplateOverride( 'project_header/search', self::$name . ':search' );
-		$this->template->setTemplateOverride( 'project_list/listing', self::$name . ':projects_listing' );
-		$this->template->setTemplateOverride( 'project_overview/columns', self::$name . ':columns' );
-		$this->template->setTemplateOverride( 'task/show', self::$name . ':show' );
-		$this->template->setTemplateOverride( 'twofactor/check', self::$name . ':check' );
-		$this->template->setTemplateOverride( 'user_list/listing', self::$name . ':users_listing' );
-		$this->template->setTemplateOverride( 'user_list/user_title', self::$name . ':user_title' );
-		$this->template->setTemplateOverride( 'user_view/profile', self::$name . ':profile' );
-
-		$this->template->hook->attach('template:auth:login-form:before', self::$name . ':login');
+		$this->template->hook->attach('template:board:task:footer', 'kanboard:board/task_avatar');
 
 		$this->container['colorModel'] = $this->container->factory( function ( $c ) {
 			return new Model\ColorModel( $c );
@@ -48,8 +30,7 @@ class Plugin extends Base {
 		} );
 
 		/**
-		 * Extending and overriding default avatar helper to limit number of
-		 * template overrides required.
+		 * Extending and overriding default helpers to limit number of template  overrides required.
 		 */
 		$this->helper->register( 'avatar', Helper\MyAvatarHelper::class );
 		$this->helper->register( 'projectHeader', Helper\MyProjectHeaderHelper::class );

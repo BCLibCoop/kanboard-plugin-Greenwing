@@ -1,3 +1,8 @@
+<?php
+/**
+ * Template overrides adds classes to style this page with correct header padding
+ */
+?>
 <section class="form-login page two-factor">
     <div class="page-header">
         <h2><?= t('Two factor authentication') ?></h2>

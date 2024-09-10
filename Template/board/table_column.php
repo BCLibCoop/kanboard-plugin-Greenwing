@@ -1,3 +1,9 @@
+<?php
+/**
+ * Override template reorders header items, and moves all column actions under
+ * a single dropdown
+ */
+?>
 <!-- column titles -->
 
 <?= $this->hook->render('template:board:table:column:before-header-row', array('swimlane' => $swimlane)) ?>

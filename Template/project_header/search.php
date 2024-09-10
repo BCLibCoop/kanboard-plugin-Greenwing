@@ -1,3 +1,8 @@
+<?php
+/**
+ * Template override adds the color filter
+ */
+?>
 <div class="filter-box">
     <form method="get" action="<?= $this->url->dir() ?>" class="search">
         <?= $this->form->hidden('controller', $filters) ?>

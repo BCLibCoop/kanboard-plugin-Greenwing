@@ -1,3 +1,9 @@
+<?php
+/**
+ * Override template adds a color class to the container, and hides the search
+ * box on the single task view
+ */
+?>
 <div class="project-header <?= isset($task) && !empty($task['color_id']) ? 'color-' . $task['color_id'] : '' ?>">
 
     <?= $this->hook->render('template:project:header:before', array('project' => $project)) ?>
