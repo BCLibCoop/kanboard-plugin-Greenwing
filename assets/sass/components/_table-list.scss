@@ -65,7 +65,7 @@
       border-color: $default-border-color;
     }
 
-    > *:first-child {
+    > * {
       flex-basis: 100%;
     }
 
@@ -100,7 +100,11 @@
       }
 
       &.table-list-details-with-icons {
-        float: none;
+        flex-basis: 0;
+
+        & ~ .table-list-icons {
+          flex-basis: initial;
+        }
       }
 
       small:not(:last-child) {
@@ -115,6 +119,7 @@
         padding: 3px 6px;
         display: inline-block;
         border-style: none;
+        color: #777a7d;
       }
     }
 

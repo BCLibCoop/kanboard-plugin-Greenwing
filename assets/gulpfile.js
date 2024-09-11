@@ -8,9 +8,9 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     paths = {
       host: 'localhost:8040',
-      dest: 'dist',
-      mainScss: 'assets/sass/main.scss',
-      scss: 'assets/sass/**/*.scss',
+      dest: '../dist',
+      mainScss: 'sass/main.scss',
+      scss: 'sass/**/*.scss',
     }
 
 gulp.task('style', function () {
@@ -32,8 +32,8 @@ gulp.task('style', function () {
 gulp.task('clearDist', function (done) {
   return (
     gulp
-      .src(['dist', 'build/dist', 'build/src'], {allowEmpty: true})
-      .pipe(clean())
+      .src(['../dist', 'build/dist', 'build/src'], {allowEmpty: true})
+      .pipe(clean({force: true}))
   )
 });
 
