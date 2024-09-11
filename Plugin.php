@@ -10,12 +10,9 @@ class Plugin extends Base {
 	public function initialize() {
 		$this->template->setTemplateOverride( 'board/table_column', self::$name . ':board/table_column' );
 		$this->template->setTemplateOverride( 'board/table_tasks', self::$name . ':board/table_tasks' );
-		$this->template->setTemplateOverride( 'group/users', self::$name . ':group/users' );
 		$this->template->setTemplateOverride( 'project_header/header', self::$name . ':project_header/header' );
 		$this->template->setTemplateOverride( 'project_header/search', self::$name . ':project_header/search' );
 		$this->template->setTemplateOverride( 'task/show', self::$name . ':task/show' );
-		$this->template->setTemplateOverride( 'twofactor/check', self::$name . ':twofactor/check' );
-		$this->template->setTemplateOverride( 'user_view/profile', self::$name . ':user_view/profile' );
 
 		$this->template->hook->attach('template:auth:login-form:before', self::$name . ':hook/login');
 

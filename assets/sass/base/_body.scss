@@ -4,10 +4,16 @@ body {
   color: $default-color;
 }
 
+.page,
+#main {
+  > *:not(.page-header, .project-header, #main) {
+    padding: 0 15px;
+  }
+}
+
 .page {
   margin-left: 0;
   margin-right: 0;
-  padding: 15px;
 }
 
 a {
@@ -43,44 +49,4 @@ hr {
 
 strong {
   font-weight: 500;
-}
-
-#main.user-profile-container {
-  padding-top: 60px;
-}
-
-#board-container,
-.page .project-header ~ .table-list,
-#main .project-header ~ .sidebar-container,
-.page #main .project-overview-columns {
-  padding-top: 130px;
-
-  @media (max-width: 767px) {
-    padding-top: 0;
-  }
-}
-
-#main > section.sidebar-container,
-.page .page-header ~ .margin-bottom {
-  padding-top: 110px;
-
-  @media (max-width: 767px) {
-    padding-top: 0;
-  }
-
-  &[id="config-section"] {
-    padding-top: 60px;
-
-    @media (max-width: 767px) {
-      padding-top: 0;
-    }
-  }
-
-  &[id="task-view"] {
-    padding-top: 130px;
-
-    @media (max-width: 767px) {
-      padding-top: 0;
-    }
-  }
 }

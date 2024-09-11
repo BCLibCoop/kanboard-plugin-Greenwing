@@ -1,7 +1,5 @@
 //Compatibility with Calendar plugin
 .js-calendar.fc.fc-unthemed.fc-ltr-rendered {
-    padding-top: 130px;
-
     table {
         margin-bottom: 0;
     }
@@ -29,10 +27,6 @@
 
 
 //Compatibility with Gantt plugin
-.page #main .menu-inline {
-  padding-top: 130px;
-}
-
 .menu-inline ~#gantt-chart {
   margin-top: 10px;
 }
@@ -56,8 +50,6 @@ div.ganttview-hzheader-day {
 
 //Compatibility with Wiki plugin
 .clearfix {
-    padding-top: 140px;
-
   .sidebar.column.list {
     width: unset;
   }
@@ -128,8 +120,6 @@ input[name=DueDate_Board_Dividers] {
 
   #main {
     #board-container {
-      padding-top: 15px;
-
       #board {
         .board-column-header {
           top: 75px;
