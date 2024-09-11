@@ -65,6 +65,17 @@
       border-color: $default-border-color;
     }
 
+    @each $name, $hex in $task-colors {
+      &.color-#{$name} {
+        border-left: 5px solid var(--task-color-#{$name}-color);
+
+        &:hover,
+        &:focus {
+          border-left-color: var(--task-color-#{$name}-border);
+        }
+      }
+    }
+
     > * {
       flex-basis: 100%;
     }
@@ -120,6 +131,17 @@
         display: inline-block;
         border-style: none;
         color: #777a7d;
+
+        @each $name, $hex in $task-colors {
+          &.color-#{$name} {
+            background-color: var(--task-color-#{$name}-background);
+            color: var(--task-color-#{$name}-color);
+
+            a {
+              color: var(--task-color-#{$name}-color);
+            }
+          }
+        }
       }
     }
 

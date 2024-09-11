@@ -347,4 +347,10 @@ header {
   position: sticky;
   top: 125px;
   z-index: 10;
+
+  @each $name, $hex in $task-colors {
+    &.color-#{$name} {
+      border-bottom: 3px solid var(--task-color-#{$name}-color);
+    }
+  }
 }

@@ -8,16 +8,25 @@
     overflow: hidden;
 
     &:hover,
-    &:focus {
+    &:focus,
+    a:hover {
       box-shadow: 0 3px 20px rgba($primary-color, 0.2);
-    }
-
-    a:hover,
-    &:focus {
       text-decoration: none;
 
       &.js-modal-large {
         color: lighten(black, 30);
+      }
+    }
+
+    @each $name, $hex in $task-colors {
+      &.color-#{$name} {
+        border-top: 3px solid var(--task-color-#{$name}-color);
+
+        &:hover,
+        &:focus,
+        a:hover {
+          border-top-color: var(--task-color-#{$name}-border);
+        }
       }
     }
   }
@@ -124,6 +133,18 @@
     font-size: 1em;
     color: initial;
 
+    @each $name, $hex in $task-colors {
+      &.color-#{$name} {
+        background-color: var(--task-color-#{$name}-background);
+        color: var(--task-color-#{$name}-color);
+
+        a,
+        .tooltip .fa-info-circle {
+          color: var(--task-color-#{$name}-color);
+        }
+      }
+    }
+
     .tooltip .fa-info-circle {
       font-size: 0.8rem;
     }
@@ -141,6 +162,13 @@
     margin: 0 2px 2px 0;
     background-color: lighten(black, 80);
     color: #777a7d;
+
+    @each $name, $hex in $task-colors {
+      &.color-#{$name} {
+        background-color: var(--task-color-#{$name}-background);
+        color: var(--task-color-#{$name}-color);
+      }
+    }
   }
 }
 

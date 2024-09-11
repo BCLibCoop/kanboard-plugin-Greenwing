@@ -1,54 +1,11 @@
-@each $name, $hex in $task-colors {
-  .color-picker-square.color-#{$name} {
-    background-color: $hex;
-  }
-
-  .task-tags li.color-#{$name} {
-    color: $hex;
-    background-color: lighten($hex, 30);
-  }
-
-  .board-task-list .task-board.color-#{$name} {
-    border-top: 3px solid $hex;
-    &:hover,
-    &:focus {
-      border-top-color: darken($hex, 10);
-    }
-  }
-
-  .task-board-category.color-#{$name} {
-    background-color: lighten($hex, 30);
-
-    a {
-      color: $hex;
-    }
-
-    .tooltip .fa-info-circle {
-      color: $hex;
-    }
-  }
-  .table-list .table-list-row.color-#{$name} {
-    border-left: 5px solid $hex;
-
-    &:hover,
-    &:focus {
-      border-left-color: darken($hex, 10);
-    }
-  }
-
-  .table-list-category.color-#{$name} {
-    background-color: lighten($hex, 30);
-    color: $hex;
-
-    a {
-      color: $hex;
-    }
-  }
-
-  .task-summary-title.color-#{$name} img {
-    background-color: $hex;
-  }
-  .page > #main > .project-header-color-bar.color-#{$name} {
-    border-bottom: 3px solid $hex;
+// Colors have been moved to CSS custom properties output from
+// the getCss() method of ColorModel. This style sheet is commented
+// out but retained if colors need to be re-generated with the
+// lighten/darken functions
+:root {
+  @each $name, $hex in $task-colors {
+    --task-color-#{$name}-color: #{$hex};
+    --task-color-#{$name}-background: #{lighten($hex, 30)};
+    --task-color-#{$name}-border: #{darken($hex, 10)};
   }
 }

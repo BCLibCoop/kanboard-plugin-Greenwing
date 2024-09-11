@@ -1,18 +1,4 @@
 #task-summary {
-  .task-summary-title {
-    display: flex;
-
-    img {
-      width: 40px;
-      height: 40px;
-      padding: 5px;
-    }
-
-    h2 {
-      color: $default-color;
-      margin-bottom: 15px;
-    }
-  }
   .task-summary-container {
     border: 1px solid $default-border-color;
     background-color: white;
