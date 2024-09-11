@@ -20,7 +20,6 @@ class Plugin extends Base {
 		$this->template->setTemplateOverride( 'board/table_column', self::$name . ':board/table_column' );
 		$this->template->setTemplateOverride( 'board/table_tasks', self::$name . ':board/table_tasks' );
 		$this->template->setTemplateOverride( 'project_header/search', self::$name . ':project_header/search' );
-		$this->template->setTemplateOverride( 'task/show', self::$name . ':task/show' );
 
 		$this->template->hook->attach('template:auth:login-form:before', self::$name . ':hook/login');
 		$this->template->hook->attach('template:project:header:filters:after', self::$name . ':hook/color_filter', [

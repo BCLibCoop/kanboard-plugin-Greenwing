@@ -14,6 +14,7 @@ class AvatarHelper extends \Kanboard\Helper\AvatarHelper
      * @param  string $email
      * @param  string $avatar_path
      * @param  string $css
+     * @param  int $size
      * @return string
      */
     public function small($user_id, $username, $name, $email, $avatar_path, $css = '', $size = 38)

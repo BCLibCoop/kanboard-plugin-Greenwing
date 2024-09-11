@@ -64,8 +64,11 @@ class ColorModel extends \Kanboard\Model\ColorModel
     /**
      * Get available colors
      *
+     * Extended to use the default language for filtering purposes
+     *
      * @access public
      * @param  bool $prepend
+     * @param  bool $defaultLanguage
      * @return array
      */
     public function getList($prepend = false, $defaultLanguage = false)
@@ -81,7 +84,7 @@ class ColorModel extends \Kanboard\Model\ColorModel
     }
 
     /**
-     * Get CSS stylesheet of all colors
+     * Don't output any color CSS, it's all in the theme file
      *
      * @access public
      * @return string
