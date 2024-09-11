@@ -8,25 +8,28 @@ class Plugin extends Base {
 	public static $name = 'Greenwing';
 
 	public function initialize() {
-		$this->template->setTemplateOverride( 'board/table_column', self::$name . ':board/table_column' );
-		$this->template->setTemplateOverride( 'board/table_tasks', self::$name . ':board/table_tasks' );
-		$this->template->setTemplateOverride( 'project_header/header', self::$name . ':project_header/header' );
-		$this->template->setTemplateOverride( 'project_header/search', self::$name . ':project_header/search' );
-		$this->template->setTemplateOverride( 'task/show', self::$name . ':task/show' );
-
-		$this->template->hook->attach('template:auth:login-form:before', self::$name . ':hook/login');
-
-		$this->template->hook->attach('template:board:task:footer', 'kanboard:board/task_avatar');
+		/**
+		 * Extending and overriding default helper to limit number of template  overrides required.
+		 */
+		$this->helper->register( 'avatar', Helper\AvatarHelper::class );
 
 		$this->container['colorModel'] = $this->container->factory( function ( $c ) {
 			return new Model\ColorModel( $c );
 		} );
 
-		/**
-		 * Extending and overriding default helpers to limit number of template  overrides required.
-		 */
-		$this->helper->register( 'avatar', Helper\AvatarHelper::class );
-		$this->helper->register( 'projectHeader', Helper\ProjectHeaderHelper::class );
+		$this->template->setTemplateOverride( 'board/table_column', self::$name . ':board/table_column' );
+		$this->template->setTemplateOverride( 'board/table_tasks', self::$name . ':board/table_tasks' );
+		$this->template->setTemplateOverride( 'project_header/search', self::$name . ':project_header/search' );
+		$this->template->setTemplateOverride( 'task/show', self::$name . ':task/show' );
+
+		$this->template->hook->attach('template:auth:login-form:before', self::$name . ':hook/login');
+		$this->template->hook->attach('template:project:header:filters:after', self::$name . ':hook/color_filter', [
+			'colors_list' => $this->container['colorModel']->getList(false, true),
+		]);
+		$this->template->hook->attach('template:layout:head', self::$name . ':hook/hide_search');
+		$this->template->hook->attach('template:task:layout:top', self::$name . ':hook/task_header_color');
+
+		$this->template->hook->attach('template:board:task:footer', 'kanboard:board/task_avatar');
 
 		$this->hook->on( 'template:layout:css', array( 'template' => $this->assetPath('main.css') ) );
 	}

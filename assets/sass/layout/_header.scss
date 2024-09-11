@@ -339,3 +339,12 @@ header {
     }
   }
 }
+
+.project-header-color-bar {
+  border-bottom: 3px solid transparent;
+  margin-top: -18px;
+  margin-bottom: 15px;
+  position: sticky;
+  top: 125px;
+  z-index: 10;
+}

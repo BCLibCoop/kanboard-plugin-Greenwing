@@ -48,7 +48,7 @@
   .task-summary-title.color-#{$name} img {
     background-color: $hex;
   }
-  .page > #main > .project-header.color-#{$name} {
+  .page > #main > .project-header-color-bar.color-#{$name} {
     border-bottom: 3px solid $hex;
   }
 }
