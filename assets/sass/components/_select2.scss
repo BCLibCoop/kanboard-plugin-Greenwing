@@ -68,6 +68,16 @@ span.select2-container {
 .color-picker-square {
   border: 0 none;
   border-radius: 50%;
+
+  &.color- {
+    border: 1px solid $default-border-color;
+  }
+
+  @each $name, $hex in $task-colors {
+    &.color-#{$name} {
+      background-color: var(--task-color-#{$name}-color);
+    }
+  }
 }
 
 .color-picker-option {

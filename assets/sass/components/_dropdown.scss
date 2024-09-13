@@ -5,16 +5,6 @@
     .color-picker-square {
       padding-right: 10px;
       border-radius: 50%;
-
-      &.color- {
-        border: 1px solid $default-border-color;
-      }
-
-      @each $name, $hex in $task-colors {
-        &.color-#{$name} {
-          background-color: var(--task-color-#{$name}-color);
-        }
-      }
     }
 
     .fa {
