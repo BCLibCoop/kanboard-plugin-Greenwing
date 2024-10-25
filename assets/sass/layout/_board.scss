@@ -129,7 +129,7 @@
 
         ~ tr[class^="board-swimlane-columns-"] {
           th.board-column-header {
-            top: 194px;
+            top: 190px;
 
             @media (max-width: 767px) {
               top: 0;
@@ -210,7 +210,7 @@
 
       ~ table {
         .board-column-header {
-          top: 194px;
+          top: 190px;
 
           @media (max-width: 767px) {
             top: 0;
