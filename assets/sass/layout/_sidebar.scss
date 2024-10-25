@@ -2,6 +2,14 @@
   padding: 0;
   margin: 0 -15px;
 
+  &#dashboard {
+    display: flex;
+
+    & .sidebar {
+      max-width: 100%;
+    }
+  }
+
   &[id="dashboard"] .sidebar,
   &[id="user-section"] .sidebar {
     top: 125px;
@@ -98,5 +106,5 @@
 
 .sidebar-content {
   padding: 0 15px;
-  max-width: 100%;
+  max-width: 100% !important;
 }
