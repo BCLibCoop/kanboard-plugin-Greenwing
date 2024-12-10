@@ -1,45 +1,7 @@
 .sidebar-container {
   padding: 0;
   margin: 0 -15px;
-
-  &#dashboard {
-    display: flex;
-
-    & .sidebar {
-      max-width: 100%;
-    }
-  }
-
-  &[id="dashboard"] .sidebar,
-  &[id="user-section"] .sidebar {
-    top: 125px;
-    max-height: calc(100vh - 150px);
-
-    @media (max-width: 767px) {
-      top: 0;
-      max-height: initial;
-    }
-  }
-
-  &[id="config-section"] .sidebar {
-    top: 75px;
-    max-height: calc(100vh - 100px);
-
-    @media (max-width: 767px) {
-      top: 0;
-      max-height: initial;
-    }
-  }
-
-  &[id="task-view"] .sidebar {
-    top: 145px;
-    max-height: calc(100vh - 170px);
-
-    @media (max-width: 767px) {
-      top: 0;
-      max-height: initial;
-    }
-  }
+  overflow: initial !important;
 }
 
 .sidebar {
@@ -49,13 +11,31 @@
   overflow-y: auto;
   top: 0;
 
+  .sidebar-container#dashboard &,
+  .sidebar-container#user-section & {
+    top: 121px;
+    max-height: calc(100vh - 150px);
+  }
+
+  .sidebar-container#config-section & {
+    top: 75px;
+    max-height: calc(100vh - 100px);
+  }
+
+  .sidebar-container#task-view & {
+    top: 141px;
+    max-height: calc(100vh - 170px);
+  }
+
   @media (max-width: 767px) {
     position: relative;
     order: 1;
     max-width: 100%;
+    top: 0 !important;
+    max-height: initial !important;
   }
 
-  ul {
+  >ul {
     li {
       padding-left: 0;
       border-left: 3px solid #e2eefe;

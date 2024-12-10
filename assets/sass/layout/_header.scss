@@ -2,9 +2,9 @@ header {
   background-color: $default-bg-color-85;
   padding: 0 15px;
   border-bottom: 0;
-  margin-bottom: 0;
+  margin-bottom: 15px;
   color: white;
-  height: 60px;
+  height: $header-height;
   align-items: center;
   position: sticky;
   top: 0;
@@ -23,14 +23,14 @@ header {
       font-size: 16px;
       order: initial;
     }
+  }
 
-    h1 {
-      display: flex;
-      align-items: center;
-      font-size: 1.3em;
-      @media (max-width: 767px) {
-        font-size: 16px;
-      }
+  h1 {
+    display: flex;
+    align-items: center;
+    font-size: 1.3em;
+    @media (max-width: 767px) {
+      font-size: 16px;
     }
   }
 
@@ -40,48 +40,6 @@ header {
     border-left: 1px solid #fff;
     text-overflow: ellipsis;
     overflow: hidden;
-  }
-
-  .logo {
-    display: inline-block;
-    vertical-align: middle;
-
-    @media (max-width: 767px) {
-      display: flex;
-      align-items: center;
-    }
-
-    a {
-      color: white;
-      transition: color 0.3s;
-      opacity: 1;
-
-      img {
-        height: 38px;
-        vertical-align: middle;
-      }
-
-      &:hover,
-      &:focus {
-        color: white;
-
-        span {
-          color: white;
-        }
-      }
-
-      span {
-        color: white;
-      }
-    }
-  }
-
-  a {
-    text-decoration: none;
-
-    .fa {
-      color: white;
-    }
   }
 
   .board-selector-container {
@@ -129,6 +87,7 @@ header {
         display: flex;
         align-items: center;
         transition: background-color 0.3s;
+        color: #fff;
 
         &:hover,
         &:focus {
@@ -155,35 +114,13 @@ header {
   }
 }
 
-.page > #main > .page-header {
-  @media (max-width: 767px) {
-    display: block !important;
-  }
-}
-
-.project-header,
-.page-header {
-  padding: 0;
-}
-
-.page > #main > .project-header,
-.page > #main > .page-header,
-.page > .project-header,
-.page > .page-header {
-  position: sticky;
-  z-index: 15;
-  width: 100%;
-  top: 60px;
-}
-
-.page > #main > .project-header,
-.page > #main > .page-header,
-.page > .project-header,
-.page > .page-header {
-  margin-bottom: 15px;
+.logo {
+  display: inline-block;
+  vertical-align: middle;
 
   @media (max-width: 767px) {
-    width: auto;
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -191,8 +128,18 @@ header {
 .page > #main {
   > .page-header,
   > .project-header {
+    position: sticky;
+    z-index: 15;
+    width: 100%;
+    top: $header-height;
+    margin-top: -15px;
+    margin-bottom: 15px;
     background-color: $default-bg-color-1;
     border-bottom: 1px solid $default-bg-color-5;
+
+    @media (max-width: 767px) {
+      width: auto;
+    }
   }
 }
 
@@ -234,7 +181,6 @@ header {
 
       a {
         color: initial;
-        text-decoration: none;
         font-size: 0.9rem;
         line-height: 45px;
         display: inline-block;
@@ -253,13 +199,6 @@ header {
         i.fa {
           margin-right: 8px;
           color: $default-bg-color-15;
-        }
-      }
-
-      &.active {
-        a:hover,
-        a:focus {
-          text-decoration: none;
         }
       }
     }
@@ -346,8 +285,8 @@ header {
 
 .project-header-color-bar {
   border-bottom: 3px solid transparent;
-  margin-top: -18px;
-  margin-bottom: 15px;
+  margin-top: -16px;
+  margin-bottom: 13px;
   position: sticky;
   top: 125px;
   z-index: 10;

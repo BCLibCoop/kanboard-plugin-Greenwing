@@ -82,12 +82,12 @@
         margin-bottom: 0.4rem;
       }
 
-      select[id="form-owner_id"] {
+      select#form-owner_id {
         width: 80%;
         display: inline-block;
       }
 
-      select[id="form-user_id"] {
+      select#form-user_id {
         width: 94%;
         display: inline-block;
         margin-right: 5px;
@@ -145,7 +145,7 @@
         }
       }
 
-      &[id="project-creation-form"],
+      &#project-creation-form,
       &[action="/?controller=GroupCreationController&action=save"] {
         #form-name {
           width: 98%;
@@ -197,7 +197,7 @@
       }
 
       &[action^="/?controller=TaskDuplicationController&action="] {
-        select[id="form-owner_id"] {
+        select#form-owner_id {
           width: 100%;
         }
       }
