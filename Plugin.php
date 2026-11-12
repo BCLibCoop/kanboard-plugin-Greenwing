@@ -35,7 +35,11 @@ class Plugin extends Base {
 
 	private function assetPath($asset_filename)
 	{
-		static $manifest = json_decode( file_get_contents( __DIR__ . '/dist/rev-manifest.json', true ), true );
+		static $manifest = null;
+		if ($manifest === null) {
+			// PHP < 8.3 does not allow a non-constant static initialiser.
+			$manifest = json_decode( file_get_contents( __DIR__ . '/dist/rev-manifest.json', true ), true );
+		}
 
 		return implode(
 			DIRECTORY_SEPARATOR,
